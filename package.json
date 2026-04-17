@@ -1,0 +1,36 @@
+{
+  "name": "lark-req-prototype",
+  "version": "1.0.0",
+  "description": "Read Feishu requirement docs, generate HTML prototypes and SRS documents with embedded screenshots",
+  "main": "src/index.js",
+  "bin": {
+    "lark-req-prototype": "bin/cli.js"
+  },
+  "scripts": {
+    "start": "node bin/cli.js",
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "feishu",
+    "lark",
+    "prototype",
+    "srs",
+    "requirement",
+    "specification",
+    "html-prototype",
+    "screenshot"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^24.41.0",
+    "commander": "^12.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
