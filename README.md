@@ -1,7 +1,7 @@
 # lark-req-prototype
 
 <p align="center">
-  <strong>馃摉 浠庨涔﹂渶姹傛枃妗?鈫?馃帹 鍙氦浜扝TML鍘熷瀷 鈫?馃搵 闇€姹傝鏍艰鏄庝功锛圫RS锛?/strong>
+  <strong>📖 从飞书需求文档 → 🎨 可交互HTML原型 → 📋 需求规格说明书（SRS）</strong>
 </p>
 
 <p align="center">
@@ -12,219 +12,279 @@
 
 ---
 
-## 鉁?鍔熻兘鐗规€?
-- **馃敆 椋炰功鏂囨。璇诲彇** 鈥?鐩存帴閫氳繃椋炰功鏂囨。 URL/Token 璇诲彇闇€姹傛枃妗ｅ唴瀹癸紝鏀寔 docx/wiki 閾炬帴
-- **馃 鏅鸿兘缁撴瀯瑙ｆ瀽** 鈥?鑷姩瑙ｆ瀽闇€姹傛枃妗ｇ殑鏍囬灞傜骇锛屾彁鍙栧姛鑳芥ā鍧椼€佷氦浜掗€昏緫銆佺敤鎴疯鑹茬瓑缁撴瀯鍖栦俊鎭?- **馃摫 HTML 鍘熷瀷鐢熸垚** 鈥?鏍规嵁瑙ｆ瀽缁撴灉鑷姩鐢熸垚鍙氦浜掔殑 HTML 鍘熷瀷椤甸潰锛堢Щ鍔ㄧ + 绠＄悊鍚庡彴锛?- **馃摳 鑷姩鎴浘** 鈥?浣跨敤 Puppeteer 瀵瑰師鍨嬮〉闈㈣嚜鍔ㄦ埅鍥撅紝鏀寔澶氶〉闈㈡壒閲忔埅鍥?- **馃搵 SRS 鏂囨。鐢熸垚** 鈥?鍩轰簬 IEEE 830 / GB/T 8567 鏉冨▉妯℃澘鐢熸垚闇€姹傝鏍艰鏄庝功
-- **馃柤锔?鎴浘宓屽叆** 鈥?鍘熷瀷鎴浘鑷姩宓屽叆 SRS 鏂囨。瀵瑰簲鐨勫姛鑳芥弿杩版ā鍧?- **鈽侊笍 椋炰功鍥炰紶** 鈥?鏀寔灏?SRS 鏂囨。鍜屽師鍨嬩笂浼犲洖椋炰功浜戞枃妗?
-## 馃搻 宸ヤ綔娴佺▼
+## ✨ 功能特性
+
+- **🔗 飞书文档读取** — 直接通过飞书文档 URL/Token 读取需求文档内容，支持 docx/wiki 链接
+- **🧠 智能结构解析** — 自动解析需求文档的标题层级，提取功能模块、交互逻辑、用户角色等结构化信息
+- **📱 HTML 原型生成** — 根据解析结果自动生成可交互的 HTML 原型页面（移动端 + 管理后台）
+- **📸 自动截图** — 使用 Puppeteer 对原型页面自动截图，支持多页面批量截图
+- **📋 SRS 文档生成** — 基于 IEEE 830 / GB/T 8567 权威模板生成需求规格说明书
+- **🖼️ 截图嵌入** — 原型截图自动嵌入 SRS 文档对应的功能描述模块
+- **☁️ 飞书回传** — 支持将 SRS 文档和原型上传回飞书云文档
+
+## 📐 工作流程
 
 ```
-鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?    鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?    鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹? 椋炰功闇€姹傛枃妗? 鈹傗攢鈹€鈹€鈹€鈻垛攤  缁撴瀯鍖栬В鏋?  鈹傗攢鈹€鈹€鈹€鈻垛攤  HTML 鍘熷瀷   鈹?鈹? (URL/Token) 鈹?    鈹? (妯″潡/鍔熻兘)  鈹?    鈹? (鍙氦浜?    鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?    鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?    鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                                                  鈹?                                                  鈻?鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?    鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?    鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹? 椋炰功浜戞枃妗?  鈹傗梹鈹€鈹€鈹€鈹€鈹? SRS 鐢熸垚    鈹傗梹鈹€鈹€鈹€鈹€鈹? 鑷姩鎴浘    鈹?鈹? (涓婁紶鍥炰紶)   鈹?    鈹? (鍚埅鍥?    鈹?    鈹? (Puppeteer) 鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?    鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?    鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?```
+┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│  飞书需求文档  │────▶│  结构化解析   │────▶│  HTML 原型   │
+│  (URL/Token) │     │  (模块/功能)  │     │  (可交互)    │
+└──────────────┘     └──────────────┘     └──────────────┘
+                                                  │
+                                                  ▼
+┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│  飞书云文档   │◀────│  SRS 生成    │◀────│  自动截图    │
+│  (上传回传)   │     │  (含截图)    │     │  (Puppeteer) │
+└──────────────┘     └──────────────┘     └──────────────┘
+```
 
-## 馃殌 蹇€熷紑濮?
-### 鍓嶇疆鏉′欢
+## 🚀 快速开始
+
+### 前置条件
 
 - **Node.js** >= 18.0.0
-- **lark-cli** 鈥?椋炰功鍛戒护琛屽伐鍏凤紙鐢ㄤ簬璇诲彇椋炰功鏂囨。鍜屼笂浼狅級
-- **Chrome / Edge** 鈥?娴忚鍣紙鐢ㄤ簬鍘熷瀷鎴浘锛?
-### 瀹夎
+- **lark-cli** — 飞书命令行工具（用于读取飞书文档和上传）
+- **Chrome / Edge** — 浏览器（用于原型截图）
+
+### 安装
 
 ```bash
-# 鍏嬮殕浠撳簱
+# 克隆仓库
 git clone https://github.com/Christin-Yang/lark-req-prototype.git
 cd lark-req-prototype
 
-# 瀹夎渚濊禆
+# 安装依赖
 npm install
 ```
 
-### 椋炰功璁よ瘉
+### 飞书认证
 
-棣栨浣跨敤鍓嶉渶瀹屾垚椋炰功 CLI 璁よ瘉锛?
+首次使用前需完成飞书 CLI 认证：
+
 ```bash
 npx @larksuite/cli auth login --domain <your-domain>
 ```
 
-### 鍩烘湰浣跨敤
+### 基本使用
 
 ```bash
-# 瀹屾暣娴佺▼锛氳鍙栨枃妗?鈫?鐢熸垚鍘熷瀷 鈫?鎴浘 鈫?鐢熸垚SRS
+# 完整流程：读取文档 → 生成原型 → 截图 → 生成SRS
 npx lark-req-prototype generate --doc "https://xxx.feishu.cn/docx/xxxxxx"
 
-# 鎸囧畾杈撳嚭鐩綍
+# 指定输出目录
 npx lark-req-prototype generate --doc "https://xxx.feishu.cn/docx/xxxxxx" -o ./my-output
 
-# 浠呯敓鎴愬師鍨?npx lark-req-prototype generate --doc "https://xxx.feishu.cn/docx/xxxxxx" --step prototype
+# 仅生成原型
+npx lark-req-prototype generate --doc "https://xxx.feishu.cn/docx/xxxxxx" --step prototype
 
-# 浠呯敓鎴怱RS锛堥渶瑕佸凡鏈夊師鍨嬪拰鎴浘锛?npx lark-req-prototype generate --doc "https://xxx.feishu.cn/docx/xxxxxx" --step srs
+# 仅生成SRS（需要已有原型和截图）
+npx lark-req-prototype generate --doc "https://xxx.feishu.cn/docx/xxxxxx" --step srs
 
-# 鐢熸垚骞朵笂浼犲埌椋炰功
+# 生成并上传到飞书
 npx lark-req-prototype generate --doc "https://xxx.feishu.cn/docx/xxxxxx" --upload
 
-# 瀵瑰凡鏈夊師鍨嬫埅鍥?npx lark-req-prototype screenshot -i ./output/prototype -o ./output/screenshots
+# 对已有原型截图
+npx lark-req-prototype screenshot -i ./output/prototype -o ./output/screenshots
 ```
 
-## 馃摉 鍛戒护璇﹁В
+## 📖 命令详解
 
-### `generate` 鈥?瀹屾暣鐢熸垚娴佺▼
+### `generate` — 完整生成流程
 
-| 鍙傛暟 | 蹇呭～ | 璇存槑 |
+| 参数 | 必填 | 说明 |
 |------|------|------|
-| `--doc <url_or_token>` | 鉁?| 椋炰功鏂囨。 URL 鎴?Token锛堟敮鎸?docx/wiki 閾炬帴锛?|
-| `-o, --output <dir>` | 鉂?| 杈撳嚭鐩綍锛岄粯璁?`./output` |
-| `--step <step>` | 鉂?| 鎵ц姝ラ锛歚all`锛堥粯璁わ級銆乣fetch`銆乣prototype`銆乣screenshot`銆乣srs` |
-| `--upload` | 鉂?| 涓婁紶缁撴灉鍒伴涔?|
-| `--srs-doc <doc_id>` | 鉂?| 鎸囧畾涓婁紶 SRS 鐨勯涔︽枃妗?ID |
-| `--as-bot` | 鉂?| 浣跨敤鏈哄櫒浜鸿韩浠斤紙榛樿 true锛?|
-| `--version <version>` | 鉂?| SRS 鏂囨。鐗堟湰鍙凤紝榛樿 `1.0` |
+| `--doc <url_or_token>` | ✅ | 飞书文档 URL 或 Token（支持 docx/wiki 链接） |
+| `-o, --output <dir>` | ❌ | 输出目录，默认 `./output` |
+| `--step <step>` | ❌ | 执行步骤：`all`（默认）、`fetch`、`prototype`、`screenshot`、`srs` |
+| `--upload` | ❌ | 上传结果到飞书 |
+| `--srs-doc <doc_id>` | ❌ | 指定上传 SRS 的飞书文档 ID |
+| `--as-bot` | ❌ | 使用机器人身份（默认 true） |
+| `--version <version>` | ❌ | SRS 文档版本号，默认 `1.0` |
 
-### `screenshot` 鈥?鍘熷瀷鎴浘
+### `screenshot` — 原型截图
 
-| 鍙傛暟 | 蹇呭～ | 璇存槑 |
+| 参数 | 必填 | 说明 |
 |------|------|------|
-| `-i, --input <dir>` | 鉁?| 鍘熷瀷 HTML 鏂囦欢鎵€鍦ㄧ洰褰?|
-| `-o, --output <dir>` | 鉂?| 鎴浘杈撳嚭鐩綍锛岄粯璁?`./output/screenshots` |
+| `-i, --input <dir>` | ✅ | 原型 HTML 文件所在目录 |
+| `-o, --output <dir>` | ❌ | 截图输出目录，默认 `./output/screenshots` |
 
-## 馃搨 杈撳嚭鐩綍缁撴瀯
+## 📂 输出目录结构
 
 ```
 output/
-鈹溾攢鈹€ prototype/                    # HTML 鍘熷瀷鏂囦欢
-鈹?  鈹溾攢鈹€ index.html               # 绉诲姩绔師鍨嬶紙鍙洿鎺ユ祻瑙堝櫒鎵撳紑锛?鈹?  鈹斺攢鈹€ admin.html               # 绠＄悊鍚庡彴鍘熷瀷
-鈹溾攢鈹€ screenshots/                  # 鍘熷瀷鎴浘
-鈹?  鈹溾攢鈹€ mobile-棣栭〉.png
-鈹?  鈹溾攢鈹€ mobile-鎻愪氦闇€姹?png
-鈹?  鈹溾攢鈹€ admin-login.png
-鈹?  鈹斺攢鈹€ admin-鏁版嵁鐪嬫澘.png
-鈹溾攢鈹€ srs.md                        # 闇€姹傝鏍艰鏄庝功锛圡arkdown锛?鈹斺攢鈹€ structure.json                # 瑙ｆ瀽鍑虹殑闇€姹傜粨鏋勶紙JSON锛?```
-
-## 馃搵 SRS 鏂囨。妯℃澘
-
-鐢熸垚鐨勯渶姹傝鏍艰鏄庝功鍩轰簬 **IEEE 830-1998** 鍜?**GB/T 8567-2006** 鏍囧噯锛屽寘鍚互涓嬬珷鑺傦細
-
-```
-1. 寮曡█
-   1.1 鐩殑
-   1.2 鑼冨洿
-   1.3 鏈瀹氫箟
-   1.4 鍙傝€冭祫鏂?2. 鎬讳綋鎻忚堪
-   2.1 浜у搧瑙嗚
-   2.2 鐢ㄦ埛鐗瑰緛
-   2.3 杩愯鐜
-   2.4 璁捐绾︽潫
-   2.5 鍋囪涓庝緷璧?3. 鍔熻兘闇€姹?   3.x 鍔熻兘妯″潡鍚?       3.x.y 鍔熻兘鐐?         - 鍔熻兘鎻忚堪
-         - 鍘熷瀷鎴浘 鈫?鑷姩宓屽叆
-         - 浜や簰閫昏緫
-         - 杈撳叆/杈撳嚭
-         - 涓氬姟瑙勫垯
-         - 寮傚父澶勭悊
-4. 闈炲姛鑳介渶姹?   4.1 鎬ц兘闇€姹?   4.2 瀹夊叏闇€姹?   4.3 鍙敤鎬ч渶姹?   4.4 鍏煎鎬ч渶姹?5. 鎺ュ彛闇€姹?6. 鏁版嵁闇€姹?7. 璐ㄩ噺灞炴€?闄勫綍
+├── prototype/                    # HTML 原型文件
+│   ├── index.html               # 移动端原型（可直接浏览器打开）
+│   └── admin.html               # 管理后台原型
+├── screenshots/                  # 原型截图
+│   ├── mobile-首页.png
+│   ├── mobile-提交需求.png
+│   ├── admin-login.png
+│   └── admin-数据看板.png
+├── srs.md                        # 需求规格说明书（Markdown）
+└── structure.json                # 解析出的需求结构（JSON）
 ```
 
-## 馃З 闇€姹傛枃妗ｆ牸寮忚姹?
-涓鸿幏寰楁渶浣宠В鏋愭晥鏋滐紝椋炰功闇€姹傛枃妗ｅ缓璁伒寰互涓嬫牸寮忥細
+## 📋 SRS 文档模板
+
+生成的需求规格说明书基于 **IEEE 830-1998** 和 **GB/T 8567-2006** 标准，包含以下章节：
+
+```
+1. 引言
+   1.1 目的
+   1.2 范围
+   1.3 术语定义
+   1.4 参考资料
+2. 总体描述
+   2.1 产品视角
+   2.2 用户特征
+   2.3 运行环境
+   2.4 设计约束
+   2.5 假设与依赖
+3. 功能需求
+   3.x 功能模块名
+       3.x.y 功能点
+         - 功能描述
+         - 原型截图 ← 自动嵌入
+         - 交互逻辑
+         - 输入/输出
+         - 业务规则
+         - 异常处理
+4. 非功能需求
+   4.1 性能需求
+   4.2 安全需求
+   4.3 可用性需求
+   4.4 兼容性需求
+5. 接口需求
+6. 数据需求
+7. 质量属性
+附录
+```
+
+## 🧩 需求文档格式要求
+
+为获得最佳解析效果，飞书需求文档建议遵循以下格式：
 
 ```markdown
-# 椤圭洰鍚嶇О
+# 项目名称
 
-## 姒傝堪
-椤圭洰鑳屾櫙鍜岀洰鏍囨弿杩?..
+## 概述
+项目背景和目标描述...
 
-## 鍔熻兘妯″潡A锛堢Щ鍔ㄧ锛?妯″潡鎻忚堪...
+## 功能模块A（移动端）
+模块描述...
 
-### 鍔熻兘鐐?
-- 鐢ㄦ埛鍙互杈撳叆xxx
-- 鐢ㄦ埛鍙互閫夋嫨xxx
-- 鎻愪氦鍚庢樉绀簒xx
+### 功能点1
+- 用户可以输入xxx
+- 用户可以选择xxx
+- 提交后显示xxx
 
-### 鍔熻兘鐐?
-- 鏌ョ湅鍒楄〃
-- 鐐瑰嚮鏌ョ湅璇︽儏
+### 功能点2
+- 查看列表
+- 点击查看详情
 
-## 绠＄悊鍚庡彴
-### 鏁版嵁鐪嬫澘
-- 鏌ョ湅缁熻鏁版嵁
-- 瀵煎嚭鎶ヨ〃
+## 管理后台
+### 数据看板
+- 查看统计数据
+- 导出报表
 
-## 闈炲姛鑳介渶姹?- 椤甸潰鍔犺浇涓嶈秴杩?绉?- 鏀寔1000骞跺彂
+## 非功能需求
+- 页面加载不超过3秒
+- 支持1000并发
 ```
 
-### 瑙ｆ瀽瑙勫垯
+### 解析规则
 
-| 鏍囬灞傜骇 | 瑙ｆ瀽涓?|
+| 标题层级 | 解析为 |
 |----------|--------|
-| `#` 涓€绾ф爣棰?| 椤圭洰鍚嶇О |
-| `##` 浜岀骇鏍囬 | 鍔熻兘妯″潡锛堣嚜鍔ㄨ瘑鍒被鍨嬶細绉诲姩绔?绠＄悊鍚庡彴/鎺ュ彛锛?|
-| `###` 涓夌骇鏍囬 | 鍏蜂綋鍔熻兘鐐?|
-| `-` 鍒楄〃椤?| 浜や簰閫昏緫/鍔熻兘鎻忚堪 |
-| 琛ㄦ牸 | 鏁版嵁瀛楁/鎺ュ彛瀹氫箟 |
+| `#` 一级标题 | 项目名称 |
+| `##` 二级标题 | 功能模块（自动识别类型：移动端/管理后台/接口） |
+| `###` 三级标题 | 具体功能点 |
+| `-` 列表项 | 交互逻辑/功能描述 |
+| 表格 | 数据字段/接口定义 |
 
-### 妯″潡绫诲瀷鑷姩璇嗗埆
+### 模块类型自动识别
 
-| 鍏抽敭璇?| 璇嗗埆涓?| 鍘熷瀷灏哄 |
+| 关键词 | 识别为 | 原型尺寸 |
 |--------|--------|----------|
-| 绠＄悊/鍚庡彴/admin/dashboard | 绠＄悊鍚庡彴 | 1440脳900 |
-| 灏忕▼搴?绉诲姩/h5/mobile/寰俊 | 绉诲姩绔?| 375脳812 |
-| 鎺ュ彛/api/鏈嶅姟/鍚庣 | API妯″潡锛堜笉鐢熸垚鍘熷瀷锛?| 鈥?|
-| 鍏朵粬 | 閫氱敤妯″潡 | 375脳812 |
+| 管理/后台/admin/dashboard | 管理后台 | 1440×900 |
+| 小程序/移动/h5/mobile/微信 | 移动端 | 375×812 |
+| 接口/api/服务/后端 | API模块（不生成原型） | — |
+| 其他 | 通用模块 | 375×812 |
 
-## 馃敡 浣滀负 lark-cli Skill 浣跨敤
+## 🔧 作为 lark-cli Skill 使用
 
-鏈」鐩篃鍙綔涓?lark-cli 鐨?Skill 闆嗘垚浣跨敤锛?
-1. 灏?`lark-req-prototype` 鐩綍澶嶅埗鍒?lark-cli 鐨?skills 鐩綍
-2. 鍦?Trae IDE 涓紝褰撻渶瑕佷粠椋炰功鏂囨。鐢熸垚鍘熷瀷鎴?SRS 鏃讹紝AI 浼氳嚜鍔ㄨ皟鐢ㄦ Skill
+本项目也可作为 lark-cli 的 Skill 集成使用：
 
-### Skill 瑙﹀彂鍦烘櫙
+1. 将 `lark-req-prototype` 目录复制到 lark-cli 的 skills 目录
+2. 在 Trae IDE 中，当需要从飞书文档生成原型或 SRS 时，AI 会自动调用此 Skill
 
-- "甯垜浠庤繖涓涔︽枃妗ｇ敓鎴愬師鍨?
-- "鏍规嵁闇€姹傛枃妗ｇ敓鎴愰渶姹傝鏍艰鏄庝功"
-- "鎶婅繖涓涔﹂摼鎺ョ殑闇€姹傚仛鎴愬師鍨?
-- "鐢熸垚SRS鏂囨。锛屽師鍨嬫埅鍥惧祵鍏ュ埌鍔熻兘鎻忚堪閲?
+### Skill 触发场景
 
-## 馃洜锔?鎶€鏈爤
+- "帮我从这个飞书文档生成原型"
+- "根据需求文档生成需求规格说明书"
+- "把这个飞书链接的需求做成原型"
+- "生成SRS文档，原型截图嵌入到功能描述里"
 
-| 鎶€鏈?| 鐢ㄩ€?|
+## 🛠️ 技术栈
+
+| 技术 | 用途 |
 |------|------|
-| Node.js | 杩愯鏃剁幆澧?|
-| lark-cli | 椋炰功鏂囨。璇诲啓 |
-| Puppeteer | 鍘熷瀷椤甸潰鎴浘 |
-| Commander.js | CLI 鍛戒护琛屾鏋?|
+| Node.js | 运行时环境 |
+| lark-cli | 飞书文档读写 |
+| Puppeteer | 原型页面截图 |
+| Commander.js | CLI 命令行框架 |
 
-## 馃搳 椤圭洰缁撴瀯
+## 📊 项目结构
 
 ```
 lark-req-prototype/
-鈹溾攢鈹€ SKILL.md                      # lark-cli Skill 閰嶇疆
-鈹溾攢鈹€ README.md                     # 鏈枃妗?鈹溾攢鈹€ package.json                  # NPM 鍖呴厤缃?鈹溾攢鈹€ LICENSE                       # MIT 璁稿彲璇?鈹溾攢鈹€ .gitignore
-鈹溾攢鈹€ bin/
-鈹?  鈹斺攢鈹€ cli.js                    # CLI 鍏ュ彛
-鈹溾攢鈹€ src/
-鈹?  鈹溾攢鈹€ index.js                  # 涓荤紪鎺掓祦绋?鈹?  鈹溾攢鈹€ doc-reader.js             # 椋炰功鏂囨。璇诲彇涓庤В鏋?鈹?  鈹溾攢鈹€ prototype-generator.js    # HTML 鍘熷瀷鐢熸垚
-鈹?  鈹溾攢鈹€ screenshot-capture.js     # Puppeteer 鎴浘
-鈹?  鈹溾攢鈹€ srs-generator.js          # SRS 鏂囨。鐢熸垚
-鈹?  鈹斺攢鈹€ uploader.js               # 椋炰功涓婁紶
-鈹斺攢鈹€ templates/                    # 妯℃澘鐩綍锛堝彲鑷畾涔夛級
+├── SKILL.md                      # lark-cli Skill 配置
+├── README.md                     # 本文档
+├── package.json                  # NPM 包配置
+├── LICENSE                       # MIT 许可证
+├── .gitignore
+├── bin/
+│   └── cli.js                    # CLI 入口
+├── src/
+│   ├── index.js                  # 主编排流程
+│   ├── doc-reader.js             # 飞书文档读取与解析
+│   ├── prototype-generator.js    # HTML 原型生成
+│   ├── screenshot-capture.js     # Puppeteer 截图
+│   ├── srs-generator.js          # SRS 文档生成
+│   └── uploader.js               # 飞书上传
+└── templates/                    # 模板目录（可自定义）
 ```
 
-## 鈿欙笍 鑷畾涔?
-### 鑷畾涔?SRS 妯℃澘
+## ⚙️ 自定义
 
-缂栬緫 `src/srs-generator.js` 涓殑 `generateSRS` 鍑芥暟锛屼慨鏀?SRS 鏂囨。鐨勭粨鏋勫拰鍐呭銆?
-### 鑷畾涔夊師鍨嬫牱寮?
-缂栬緫 `src/prototype-generator.js` 涓殑 `COLORS` 甯搁噺鍜岄〉闈㈢敓鎴愬嚱鏁帮紝淇敼鍘熷瀷鐨勮瑙夐鏍笺€?
-### 鑷畾涔夋埅鍥剧瓥鐣?
-缂栬緫 `src/screenshot-capture.js`锛屼慨鏀规埅鍥剧殑瑙嗗彛澶у皬銆佺瓑寰呮椂闂淬€侀€夋嫨鍣ㄧ瓑鍙傛暟銆?
-## 馃 璐＄尞
+### 自定义 SRS 模板
 
-娆㈣繋璐＄尞锛佽閬靛惊浠ヤ笅姝ラ锛?
-1. Fork 鏈粨搴?2. 鍒涘缓鐗规€у垎鏀?(`git checkout -b feature/amazing-feature`)
-3. 鎻愪氦鏇存敼 (`git commit -m 'Add amazing feature'`)
-4. 鎺ㄩ€佸埌鍒嗘敮 (`git push origin feature/amazing-feature`)
-5. 鍒涘缓 Pull Request
+编辑 `src/srs-generator.js` 中的 `generateSRS` 函数，修改 SRS 文档的结构和内容。
 
-## 馃搫 璁稿彲璇?
-鏈」鐩熀浜?[MIT License](LICENSE) 寮€婧愩€?
-## 馃檹 鑷磋阿
+### 自定义原型样式
 
-- [lark-cli](https://github.com/larksuite) 鈥?椋炰功鍛戒护琛屽伐鍏?- [Puppeteer](https://pptr.dev/) 鈥?娴忚鍣ㄨ嚜鍔ㄥ寲
-- [IEEE 830-1998](https://standards.ieee.org/ieee/830/2040/) 鈥?杞欢闇€姹傝鏍艰鏄庢爣鍑?- [GB/T 8567-2006](https://openstd.samr.gov.cn/) 鈥?璁＄畻鏈鸿蒋浠舵枃妗ｇ紪鍒惰鑼?
+编辑 `src/prototype-generator.js` 中的 `COLORS` 常量和页面生成函数，修改原型的视觉风格。
+
+### 自定义截图策略
+
+编辑 `src/screenshot-capture.js`，修改截图的视口大小、等待时间、选择器等参数。
+
+## 🤝 贡献
+
+欢迎贡献！请遵循以下步骤：
+
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
+3. 提交更改 (`git commit -m 'Add amazing feature'`)
+4. 推送到分支 (`git push origin feature/amazing-feature`)
+5. 创建 Pull Request
+
+## 📄 许可证
+
+本项目基于 [MIT License](LICENSE) 开源。
+
+## 🙏 致谢
+
+- [lark-cli](https://github.com/larksuite) — 飞书命令行工具
+- [Puppeteer](https://pptr.dev/) — 浏览器自动化
+- [IEEE 830-1998](https://standards.ieee.org/ieee/830/2040/) — 软件需求规格说明标准
+- [GB/T 8567-2006](https://openstd.samr.gov.cn/) — 计算机软件文档编制规范
